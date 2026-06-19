@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Chitra Shrestha @accountant</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Sono:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="sparkCanvas"></canvas>
+
+    <div class="min-h-screen w-full flex justify-center py-8 px-4 sm:py-10">
+      <div class="flex flex-col gap-6 items-center w-full max-w-xl">
+        <!-- HEADER -->
+        <header id="site-header" class="w-full blur-in">
+          <div class="flex flex-col gap-3 items-start w-full">
+            <div class="flex items-center gap-3 w-full">
+              <a href="/" id="homeLogoLink" class="shrink-0">
+                <div
+                  class="size-10 rounded-full overflow-hidden bg-olive-300 dark:bg-olive-600 border border-olive-300 dark:border-olive-600"
+                >
+                  <img
+                    src="avater.png"
+                    alt="Avatar"
+                    class="w-full h-full object-cover"
+                    onerror="
+                      this.src =
+                        'https://ui-avatars.com/api/?background=2D6A4F&color=fff&name=C&size=48'
+                    "
+                  />
+                </div>
+              </a>
+              <div class="header-name-tagline">
+                <span class="name text-olive-800 dark:text-olive-100"
+                  >Chitra Shrestha</span
+                >
+                <span class="pipe">|</span>
+                <span class="tagline">Tally · Excel · Journal Entries</span>
+              </div>
+            </div>
+            <nav class="flex items-center gap-4 w-full flex-wrap">
+              <a
+                href="/"
+                class="nav-link active text-sm font-medium"
+                data-page="home"
+                >Home</a
+              >
+              <a
+                href="/learning"
+                class="nav-link text-sm font-medium text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100"
+                data-page="learning"
+                >Learning</a
+              >
+              <a
+                href="/notes"
+                class="nav-link text-sm font-medium text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100"
+                data-page="notes"
+                >Notes</a
+              >
+              <a
+                href="/coding"
+                class="nav-link text-sm font-medium text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100"
+                data-page="coding"
+                >Coding</a
+              >
+              <div class="ml-auto flex items-center gap-2">
+                <button
+                  id="themeToggle"
+                  class="flex items-center gap-1.5 bg-transparent border-none cursor-pointer px-2 py-1 -mx-1 rounded-md transition-colors hover:bg-olive-200 dark:hover:bg-olive-700"
+                >
+                  <span
+                    class="toggle-text text-sm font-medium text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100 transition-colors"
+                    id="themeToggleLabel"
+                    >Go Dark</span
+                  >
+                  <div
+                    class="size-4 text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100 transition-colors"
+                    id="themeToggleIcon"
+                  >
+                    <svg
+                      class="block size-full"
+                      fill="none"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        opacity="0.5"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.01089 1.36195C7.13055 1.51764 7.14802 1.72894 7.05549 1.90215C6.6662 2.63124 6.4453 3.46402 6.4453 4.34988C6.4453 7.22444 8.77555 9.55471 11.6501 9.55471C12.536 9.55471 13.3688 9.33378 14.0978 8.94451C14.271 8.85198 14.4824 8.86944 14.638 8.98911C14.7938 9.10878 14.865 9.30844 14.8202 9.49965C14.1038 12.5566 11.3606 14.8333 8.08462 14.8333C4.26395 14.8333 1.16669 11.736 1.16669 7.91538C1.16669 4.63935 3.44339 1.89628 6.50035 1.17984C6.69155 1.13503 6.89122 1.20627 7.01089 1.36195Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <!-- HOME -->
+        <div id="home-page" class="page active-page w-full">
+          <div
+            class="font-normal w-full text-olive-800 dark:text-olive-100 text-sm/6 text-justify flex flex-col gap-4"
+          >
+            <p class="blur-in">
+              Fresher in accounting, looking for an opportunity to learn, grow,
+              and gain practical experience in the accounting field. Over the
+              past few months, I have been building my accounting knowledge by
+              studying accounting basics, journal entries, trial balances, and
+              financial statements. I also practice Tally regularly and keep
+              learning notes to better understand accounting concepts. I am
+              eager to apply my knowledge in a real-world environment and
+              continue developing my skills.
+            </p>
+            <p class="blur-in">
+              When I'm not studying accounts, I love working on web dev stuff
+              instead of studies, watching anime, fantasy series, and movies,
+              helping at home, learning Excel, and watching finance videos.
+            </p>
+            <p class="blur-in">
+              Always open to interesting conversations about accounting, jobs,
+              and career growth.
+              <button
+                id="sayHelloBtn"
+                class="link cursor-pointer bg-transparent border-none p-0 text-inherit text-sm font-medium"
+              >
+                Say hello
+              </button>
+              or connect with me on
+              <a href="https://www.facebook.com/chitra.shrestha.301201" class="link" id="facebook" target="_blank">facebook</a> or via
+              <a href="mailto:chitrashrestha1299@gmail.com" id="sayEmailBtn" class="link"
+                >email</a
+              >.
+            </p>
+          </div>
+          <div
+            class="flex gap-3 items-center justify-center py-4 w-full blur-in"
+          >
+            <div class="dot-sep dot-sep-red"></div>
+            <div class="dot-sep dot-sep-yellow"></div>
+            <div class="dot-sep dot-sep-green"></div>
+          </div>
+          <div class="w-full">
+            <div class="flex flex-col gap-3 items-start">
+              <p
+                class="text-olive-400 dark:text-olive-500 text-sm uppercase font-mono tracking-wide blur-in"
+              >
+                Practice Work
+              </p>
+              <div class="flex flex-col gap-3 w-full stagger">
+                <div class="flex gap-4 items-center w-full group">
+                  <div class="basis-0 flex gap-4 grow items-center">
+                    <div class="shrink-0 size-5 text-base">📒</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Journal Entry Practice
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        50+ voucher entries in Tally ERP 9
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-center w-full group">
+                  <div class="basis-0 flex gap-4 grow items-center">
+                    <div class="shrink-0 size-5 text-base">⚖️</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Trial Balance Preparation
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        Verified debit and credit balances
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-center w-full group">
+                  <div class="basis-0 flex gap-4 grow items-center">
+                    <div class="shrink-0 size-5 text-base">💻</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Tally ERP 9 Practice
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        VAT, vouchers, P&L & Balance Sheet
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-center w-full group">
+                  <div class="basis-0 flex gap-4 grow items-center">
+                    <div class="shrink-0 size-5 text-base">📊</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Trading & Service Accounting Lab
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        Discounts, depreciation & accrual
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEARNING -->
+        <div id="learning-page" class="page w-full">
+          <div class="flex flex-col gap-3 items-start w-full">
+            <p
+              class="text-olive-400 dark:text-olive-500 text-sm uppercase font-mono tracking-wide blur-in"
+            >
+              Discovering New Things
+            </p>
+            <div
+              class="flex flex-col gap-3 w-full stagger"
+              id="learning-posts-list"
+            ></div>
+          </div>
+        </div>
+
+        <!-- BLOG POST VIEW -->
+        <div id="blog-post-view" class="page w-full">
+          <nav aria-label="breadcrumb" class="mb-4 w-full">
+            <ol class="flex flex-wrap items-center text-xs gap-2 sm:gap-2.5">
+              <li class="inline-flex items-center gap-1.5">
+                <a
+                  href="/"
+                  class="hover:underline transition-colors flex gap-2 items-center text-olive-800 dark:text-olive-100"
+                  id="blogHomeLink"
+                  ><div
+                    class="relative rounded-full shrink-0 size-6 bg-olive-300 dark:bg-olive-600 overflow-hidden border border-olive-300 dark:border-olive-600"
+                  >
+                    <img
+                      src="avater.png"
+                      alt="Avatar"
+                      class="w-full h-full object-cover"
+                      onerror="
+                        this.src =
+                          'https://ui-avatars.com/api/?background=2D6A4F&color=fff&name=C&size=48'
+                      "
+                    />
+                  </div>
+                  <span class="text-sm font-medium">Chitra Shrestha</span></a
+                >
+              </li>
+              <li>
+                <span class="text-xs text-olive-500 dark:text-olive-400"
+                  >/</span
+                >
+              </li>
+              <li>
+                <a
+                  href="/learning"
+                  class="hover:underline text-sm text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100"
+                  id="blogBreadcrumbLearning"
+                  >Learning</a
+                >
+              </li>
+              <li>
+                <span class="text-xs text-olive-500 dark:text-olive-400"
+                  >/</span
+                >
+              </li>
+              <li>
+                <span
+                  class="text-olive-500 dark:text-olive-400 font-normal text-sm"
+                  id="blogBreadcrumbTitle"
+                  >Trying to Master Trial Balance</span
+                >
+              </li>
+            </ol>
+          </nav>
+          <div class="w-full">
+            <h1
+              class="font-serif italic text-olive-800 dark:text-olive-100 text-4xl sm:text-5xl leading-tight"
+              id="blogPostTitle"
+            >
+              Trying to Master Trial Balance
+            </h1>
+            <p
+              class="text-sm text-olive-500 dark:text-olive-400 font-mono uppercase mt-2 tracking-wide"
+              id="blogPostDate"
+            >
+              10.May.2026
+            </p>
+          </div>
+          <div
+            class="flex flex-col items-start w-full mt-4"
+            id="blogPostContent"
+          ></div>
+          <div class="flex gap-3 items-center justify-center py-4 w-full">
+            <div class="dot-sep dot-sep-red"></div>
+            <div class="dot-sep dot-sep-yellow"></div>
+            <div class="dot-sep dot-sep-green"></div>
+          </div>
+          <div class="w-full">
+            <div class="flex flex-col gap-4 items-end w-full">
+              <p class="font-medium text-olive-500 dark:text-olive-400 text-sm">
+                Further reading
+              </p>
+              <div
+                class="flex flex-col gap-3 w-full"
+                id="blogFurtherReading"
+              ></div>
+            </div>
+          </div>
+          <div class="flex gap-3 items-center justify-center py-4 w-full">
+            <div class="dot-sep dot-sep-red"></div>
+            <div class="dot-sep dot-sep-yellow"></div>
+            <div class="dot-sep dot-sep-green"></div>
+          </div>
+          <div class="w-full text-center">
+            <button
+              id="blogBackToLearning"
+              class="text-sm text-olive-500 dark:text-olive-400 hover:text-olive-800 dark:hover:text-olive-100 hover:underline transition-colors cursor-pointer"
+            >
+              ← Back to all posts
+            </button>
+          </div>
+        </div>
+
+        <!-- NOTES -->
+        <div id="notes-page" class="page w-full">
+          <div class="flex flex-col gap-3 items-start w-full">
+            <p
+              class="text-olive-400 dark:text-olive-500 text-sm uppercase font-mono tracking-wide blur-in"
+            >
+              Quick Revision Notes
+            </p>
+
+            <div class="flex flex-col gap-3 w-full stagger">
+              <div
+                class="card border border-olive-200 dark:border-olive-700 rounded-xl p-4 bg-white/50 dark:bg-olive-800/30"
+              >
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">📘</span>
+                    <h3
+                      class="font-semibold text-sm text-olive-800 dark:text-olive-100"
+                    >
+                      Basic Accounting Terms
+                    </h3>
+                  </div>
+                  <a
+                    href="https://drive.google.com/drive/folders/1Mx7ro3TV4SiQWbY7cD8JU1tz3ghgM-q7?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs bg-olive-200 dark:bg-olive-700 px-2 py-1 rounded text-olive-800 dark:text-olive-100 inline-flex items-center gap-1"
+                  >
+                    <span class="text-sm">📂</span>
+                    Drive
+                  </a>
+                </div>
+                <div
+                  class="grid grid-cols-2 gap-2 text-xs mt-2 text-olive-800 dark:text-olive-100"
+                >
+                  <div><strong>Asset:</strong> What business owns</div>
+                  <div><strong>Liability:</strong> What business owes</div>
+                  <div><strong>Capital:</strong> Owner's investment</div>
+                  <div><strong>Debtor:</strong> Someone who owes us</div>
+                  <div><strong>Creditor:</strong> Someone we owe</div>
+                  <div><strong>Expense:</strong> Cost to run business</div>
+                  <div><strong>Income:</strong> Revenue earned</div>
+                  <div><strong>Drawings:</strong> Owner's withdrawal</div>
+                </div>
+              </div>
+              <div
+                class="card border border-olive-200 dark:border-olive-700 rounded-xl p-4 bg-white/50 dark:bg-olive-800/30"
+              >
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">📙</span>
+                    <h3
+                      class="font-semibold text-sm text-olive-800 dark:text-olive-100"
+                    >
+                      Golden Rules of Accounting
+                    </h3>
+                  </div>
+                  <a
+                    href="https://drive.google.com/drive/folders/143xrBH10p0YTliPcb_d7IkiqC6uqyfYR?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs bg-olive-200 dark:bg-olive-700 px-2 py-1 rounded text-olive-800 dark:text-olive-100 inline-flex items-center gap-1"
+                  >
+                    <span class="text-sm">📂</span>
+                    Drive
+                  </a>
+                </div>
+                <div
+                  class="text-xs mt-2 space-y-1 text-olive-800 dark:text-olive-100"
+                >
+                  <p>
+                    <strong>Personal:</strong> Debit the receiver, Credit the
+                    giver.
+                  </p>
+                  <p>
+                    <strong>Real:</strong> Debit what comes in, Credit what goes
+                    out.
+                  </p>
+                  <p>
+                    <strong>Nominal:</strong> Debit all expenses/losses, Credit
+                    all incomes/gains.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="card border border-olive-200 dark:border-olive-700 rounded-xl p-4 bg-white/50 dark:bg-olive-800/30"
+              >
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">📗</span>
+                    <h3
+                      class="font-semibold text-sm text-olive-800 dark:text-olive-100"
+                    >
+                      Journal Entry Format
+                    </h3>
+                  </div>
+                  <a
+                    href="https://drive.google.com/drive/folders/1D4HCSNEWECQ7mfrqnsNeTkSEKDtYGwzw?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs bg-olive-200 dark:bg-olive-700 px-2 py-1 rounded text-olive-800 dark:text-olive-100 inline-flex items-center gap-1"
+                  >
+                    <span class="text-sm">📂</span>
+                    Drive
+                  </a>
+                </div>
+                <pre
+                  class="text-xs mt-2 bg-olive-200 dark:bg-olive-700 p-2 rounded overflow-x-auto text-olive-800 dark:text-olive-100"
+                >
+Rent paid NPR 5,000 cash → Debit Rent A/c, Credit Cash A/c</pre
+                >
+              </div>
+              <div
+                class="card border border-olive-200 dark:border-olive-700 rounded-xl p-4 bg-white/50 dark:bg-olive-800/30"
+              >
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg">📋</span>
+                    <h3
+                      class="font-semibold text-sm text-olive-800 dark:text-olive-100"
+                    >
+                      Trial Balance Format
+                    </h3>
+                  </div>
+                  <a
+                    href="https://drive.google.com/file/d/1rdObCWgZqZ1hKh7yM6IV8g8OJTVOr38F/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs bg-olive-200 dark:bg-olive-700 px-2 py-1 rounded text-olive-800 dark:text-olive-100 inline-flex items-center gap-1"
+                  >
+                    <span class="text-sm">📂</span>
+                    Drive
+                  </a>
+                </div>
+                <div class="text-xs mt-2">
+                  <div
+                    class="flex justify-between items-center pb-2 border-b"
+                    style="border-color: #e2ded4"
+                  >
+                    <span
+                      class="uppercase tracking-wide"
+                      style="color: #9b8e73; font-size: 10px"
+                      >Account</span
+                    >
+                    <div class="flex gap-6">
+                      <span
+                        class="uppercase tracking-wide w-16 text-right"
+                        style="color: #9b8e73; font-size: 10px"
+                        >Debit</span
+                      >
+                      <span
+                        class="uppercase tracking-wide w-16 text-right"
+                        style="color: #9b8e73; font-size: 10px"
+                        >Credit</span
+                      >
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center py-2 border-b"
+                    style="border-color: #f0eee8"
+                  >
+                    <span>Cash</span>
+                    <div class="flex gap-6">
+                      <div class="w-16 flex flex-col items-end gap-1">
+                        <span style="margin-right: 14px">45,000</span>
+                        <div
+                          class="w-full h-[3px] rounded-full overflow-hidden"
+                          style="background: #f0eee8"
+                        >
+                          <div
+                            class="h-full rounded-full"
+                            style="width: 100%; background: #857557"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="w-16 text-right" style="color: #cec7b8">
+                        —
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center py-2 border-b"
+                    style="border-color: #f0eee8"
+                  >
+                    <span>Sales</span>
+                    <div class="flex gap-6">
+                      <div class="w-16 text-right" style="color: #cec7b8">
+                        —
+                      </div>
+                      <div class="w-16 flex flex-col items-end gap-1">
+                        <span>30,000</span>
+                        <div
+                          class="w-full h-[3px] rounded-full overflow-hidden"
+                          style="background: #f0eee8"
+                        >
+                          <div
+                            class="h-full rounded-full"
+                            style="width: 67%; background: #9b8e73"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center py-2 border-b"
+                    style="border-color: #f0eee8"
+                  >
+                    <span>Purchases</span>
+                    <div class="flex gap-6">
+                      <div class="w-16 flex flex-col items-end gap-1">
+                        <span style="margin-right: 14px">20,000</span>
+                        <div
+                          class="w-full h-[3px] rounded-full overflow-hidden"
+                          style="background: #f0eee8"
+                        >
+                          <div
+                            class="h-full rounded-full"
+                            style="width: 44%; background: #857557"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="w-16 text-right" style="color: #cec7b8">
+                        —
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center py-2 border-b"
+                    style="border-color: #f0eee8"
+                  >
+                    <span>Rent</span>
+                    <div class="flex gap-6">
+                      <div class="w-16 flex flex-col items-end gap-1">
+                        <span style="margin-right: 20px">5,000</span>
+                        <div
+                          class="w-full h-[3px] rounded-full overflow-hidden"
+                          style="background: #f0eee8"
+                        >
+                          <div
+                            class="h-full rounded-full"
+                            style="width: 11%; background: #857557"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="w-16 text-right" style="color: #cec7b8">
+                        —
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center py-2 border-b"
+                    style="border-color: #f0eee8"
+                  >
+                    <span>Capital</span>
+                    <div class="flex gap-6">
+                      <div class="w-16 text-right" style="color: #cec7b8">
+                        —
+                      </div>
+                      <div class="w-16 flex flex-col items-end gap-1">
+                        <span>40,000</span>
+                        <div
+                          class="w-full h-[3px] rounded-full overflow-hidden"
+                          style="background: #f0eee8"
+                        >
+                          <div
+                            class="h-full rounded-full"
+                            style="width: 89%; background: #9b8e73"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center rounded-lg">
+                    <span class="font-medium">Total</span>
+                    <div class="flex gap-6">
+                      <span class="text-right font-sm" style="margin-left: 20px"
+                        >70,000</span
+                      >
+                      <span class="text-right font-sm">70,000</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-1.5 mt-2">
+                    <span
+                      class="inline-flex items-center justify-center rounded-full text-white"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        background: #4e964e;
+                        font-size: 10px;
+                      "
+                      >✓</span
+                    >
+                    <span style="color: #4e964e"
+                      >Debit = Credit — trial balance agrees</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CODING -->
+        <div id="coding-page" class="page w-full">
+          <div
+            class="font-normal w-full text-olive-800 dark:text-olive-100 text-sm/6 text-justify flex flex-col gap-4"
+          >
+            <p class="blur-in">
+              While studying accounting, I discovered the joy of building things
+              with code. I started with HTML, CSS, and JavaScript, and now I'm
+              learning React and modern web development. I love creating clean,
+              responsive websites and solving problems with logic.
+            </p>
+            <p class="blur-in">
+              My tech stack includes HTML5, CSS3, Tailwind CSS, JavaScript
+              (ES6+), React.js, Git & GitHub, VS Code, and Figma basics. I'm
+              constantly learning and building new things.
+            </p>
+          </div>
+          <div
+            class="flex gap-3 items-center justify-center py-4 w-full blur-in"
+          >
+            <div class="dot-sep dot-sep-red"></div>
+            <div class="dot-sep dot-sep-yellow"></div>
+            <div class="dot-sep dot-sep-green"></div>
+          </div>
+          <div class="w-full">
+            <div class="flex flex-col gap-3 items-start">
+              <p
+                class="text-olive-400 dark:text-olive-500 text-sm uppercase font-mono tracking-wide blur-in"
+              >
+                Coding Projects
+              </p>
+              <div class="flex flex-col gap-3 w-full stagger">
+                <div class="flex gap-4 items-center w-full group">
+                  <div
+                    class="basis-0 flex gap-4 grow items-center"
+                    style="align-items: baseline"
+                  >
+                    <div class="shrink-0 size-5 text-base">✨</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Personal Portfolio (this site)
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        Responsive, dark mode, spark effects
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-center w-full group">
+                  <div
+                    class="basis-0 flex gap-4 grow items-center"
+                    style="align-items: baseline"
+                  >
+                    <div class="shrink-0 size-5 text-base">📘</div>
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Accounting Learning Blog
+                      </p>
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                        >/</span
+                      >
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        Mini‑blog explaining debit/credit, trial balance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="https://meaningoapp.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex gap-4 items-center w-full group"
+                >
+                  <div
+                    class="basis-0 flex gap-4 grow items-baseline"
+                    style="align-items: baseline"
+                  >
+                    <div class="shrink-0 size-5 text-base">📚</div>
+
+                    <div
+                      class="basis-0 flex gap-2 grow items-center flex-wrap sm:flex-nowrap"
+                    >
+                      <p
+                        class="font-semibold text-sm group-hover:underline underline-offset-4 text-olive-800 dark:text-olive-100"
+                      >
+                        Dictionary Web App
+                      </p>
+
+                      <span
+                        class="text-xs text-olive-500 dark:text-olive-400 hidden sm:inline"
+                      >
+                        /
+                      </span>
+
+                      <p class="text-olive-500 dark:text-olive-400 text-sm">
+                        Search for words and get definitions, synonyms etc
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="quote blur-in">
+            "Code is like journal entries – every line must balance logic and
+            purpose."
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="flex gap-3 items-center justify-center py-4 w-full blur-in">
+          <div class="dot-sep dot-sep-red"></div>
+          <div class="dot-sep dot-sep-yellow"></div>
+          <div class="dot-sep dot-sep-green"></div>
+        </div>
+        <div
+          class="w-full flex flex-col gap-6 items-center justify-center blur-in"
+        >
+          <div class="flex flex-col gap-2 items-center w-full">
+            <div
+              class="relative text-sm text-center flip-label w-full"
+              id="flipContainer"
+            >
+              <label
+                class="font-regular block transition-all duration-300 ease-in origin-bottom backface-visibility-hidden front text-olive-800 dark:text-olive-100"
+                >My learning diary & job updates :)</label
+              >
+              <p
+                class="font-regular absolute inset-0 flex items-center justify-center whitespace-nowrap transition-all duration-300 ease-out origin-top delay-150 backface-visibility-hidden back text-olive-800 dark:text-olive-100"
+              >
+                Check your inbox to confirm!
+              </p>
+            </div>
+            <div class="subscribe-wrapper">
+              <form class="subscribe-form" id="subscribeForm" novalidate>
+                <input
+                  type="email"
+                  class="subscribe-input"
+                  id="subscribeEmail"
+                  placeholder="you@youremail.com"
+                  required
+                />
+                <button type="submit" class="subscribe-btn" id="subscribeBtn">
+                  <span id="btnText" style="display: inline">Subscribe</span>
+                </button>
+              </form>
+            </div>
+            <p class="text-olive-500 dark:text-olive-400 text-xs text-center">
+              Powered by curiosity & hard work
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
